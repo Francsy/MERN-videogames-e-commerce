@@ -1,4 +1,5 @@
 const Product = require('../models/products')
+// This middleware will help with public ids in case we need to post new products once the initial data is loaded
 
 const publicIdHandler = async () => {
     try {
