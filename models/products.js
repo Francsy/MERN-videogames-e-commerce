@@ -28,7 +28,6 @@ const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
 
-// Insertar un producto
 // const p = new Product({
 //     name: "Heura",
 //     relevance: 8,
