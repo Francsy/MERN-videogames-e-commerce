@@ -4,8 +4,9 @@ const Product = require('../models/products')
 
 
 const getAll = async (req, res) => {
+    const { limit, skipIndex } = req.pagination
     try {
-        let products = await Product.find({}, '-_id -__v -manufacturer');
+        let products = await Product.find({}, '-_id -__v -manufacturer').skip(skipIndex).limit(limit);
         res.status(200).json(products);
     } catch (err) {
         res.status(400).json({ message: err.message });
@@ -14,10 +15,11 @@ const getAll = async (req, res) => {
 
 const getAllSortByName = async (req, res) => {
     const { order } = req.query // asc or des
+    const { limit, skipIndex } = req.pagination
     let orderInfo;
     order === 'asc' ? orderInfo = 1 : orderInfo = -1;
     try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({name: orderInfo});
+        let products = await Product.find({}, '-_id -__v -manufacturer').sort({name: orderInfo}).skip(skipIndex).limit(limit);;
         res.status(200).json(products);
         
     } catch (err) {
@@ -27,10 +29,11 @@ const getAllSortByName = async (req, res) => {
 
 const getAllSortByRelevance = async (req, res) => {
     const { order } = req.query 
+    const { limit, skipIndex } = req.pagination
     let orderInfo;
     order === 'asc' ? orderInfo = 1 : orderInfo = -1;
     try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({relevance: orderInfo});
+        let products = await Product.find({}, '-_id -__v -manufacturer').sort({relevance: orderInfo}).skip(skipIndex).limit(limit);;
         res.status(200).json(products);
         
     } catch (err) {
@@ -41,10 +44,11 @@ const getAllSortByRelevance = async (req, res) => {
 
 const getAllSortByPrice = async (req, res) => {
     const { order } = req.query 
+    const { limit, skipIndex } = req.pagination
     let orderInfo;
     order === 'asc' ? orderInfo = 1 : orderInfo = -1;
     try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({price: orderInfo});
+        let products = await Product.find({}, '-_id -__v -manufacturer').sort({price: orderInfo}).skip(skipIndex).limit(limit);;
         res.status(200).json(products);
         
     } catch (err) {
