@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-
 const Manufacturer = require('../models/manufacturers')
 const Product = require('../models/products');
+const publicIdHandler = require('../utils/publicIdHandler')
 
 const seedManufacturers = [
     { "manufacturer_name": "Bergstrom-Feest Inc", "CIF": "X799281116", "address": "462 Blaine Trail" },
@@ -427,7 +427,7 @@ const loadData = async () => {
     console.log('Manufacturers loaded')
     const manufacturerIds = loadedManufacturers.map(manufacturer => manufacturer._id);
 
-    const seedProducts = initialProducts.map(product => ({ ...product, manufacturer: manufacturerIds[Math.floor(Math.random()*manufacturerIds.length)] }));
+    const seedProducts = initialProducts.map((product, i) => ({ ...product, id: i+1,  manufacturer: manufacturerIds[Math.floor(Math.random()*manufacturerIds.length)] }));
 
     await Product.deleteMany({});
     await Product.insertMany(seedProducts);
