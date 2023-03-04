@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 require('../utils/db_mongo')
 
 const objectSchema = {
+    id: { 
+        type: Number, 
+        required: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,
