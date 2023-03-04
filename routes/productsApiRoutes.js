@@ -2,12 +2,11 @@ const express = require('express');
 const productsApiController = require('../controllers/productsApiController');
 const productsApiRouter = express.Router();
 
-productsApiRouter.get('/', productsApiController.getAllProducts)
-/* 
-- Devuelve todos los productos paginados.
-- Devuelve productos ordenados por nombre.
-- Devuelve productos ordenados por relevancia.
-- Devuelve productos ordenados por precio.
-- Devolver todos los detalles de un producto con un id dado por un params? */
+productsApiRouter.get('/', productsApiController.getAll)
+productsApiRouter.get('/name', productsApiController.getAllSortByName)
+productsApiRouter.get('/relevance', productsApiController.getAllSortByRelevance)
+productsApiRouter.get('/price', productsApiController.getAllSortByPrice)
+
+
 
 module.exports = productsApiRouter;
