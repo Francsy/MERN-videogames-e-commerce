@@ -6,7 +6,6 @@ productsApiRouter.get('/', productsApiController.getAll)
 productsApiRouter.get('/name', productsApiController.getAllSortByName)
 productsApiRouter.get('/relevance', productsApiController.getAllSortByRelevance)
 productsApiRouter.get('/price', productsApiController.getAllSortByPrice)
-
-
+productsApiRouter.get('/:id', productsApiController.getProductInfo)
 
 module.exports = productsApiRouter;

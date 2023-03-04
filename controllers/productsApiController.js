@@ -52,12 +52,28 @@ const getAllSortByPrice = async (req, res) => {
     }
 }
 
+const getProductInfo = async (req, res) => {
+    const {id} = req.params;
+    try {
+        let product = await Product.findOne({ id }, { "_id": 0, "__v": 0 }).populate('manufacturer', '-_id -__v'); // []
+        if (product) {
+            res.status(200).json(product); // 
+        }
+        else {
+            res.status(404).json({ message: "product wit id " + req.params.id + " not found"}); 
+        }
+    }
+    catch (err) {
+        res.status(400).json({ message: err.message });
+    }
 
+}
 
 module.exports = {
     getAll,
     getAllSortByName,
     getAllSortByRelevance,
-    getAllSortByPrice
+    getAllSortByPrice,
+    getProductInfo
 
 }
