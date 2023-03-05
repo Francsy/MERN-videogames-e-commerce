@@ -65,7 +65,8 @@ const Store = () => {
   }
 
 
-  return <div> {products.length > 1 ?
+  return <>
+    {products.length > 1 ?
     <><button onClick={()=>orderByRule('name')}>Sort by name</button>
     <button onClick={()=>orderByRule('relevance')}>Sort by relevance</button>
     <button onClick={()=>orderByRule('price')}>Sort by price</button>
@@ -77,7 +78,7 @@ const Store = () => {
       {page === 1 && !moreAhead ? <></> : <span>{page}</span>}
       {moreAhead? <button onClick={goNext}>Next</button> : <></>}
       </div>
-  </div>;
+  </>;
   };
 
   export default Store;
