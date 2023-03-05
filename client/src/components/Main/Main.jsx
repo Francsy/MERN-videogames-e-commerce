@@ -14,7 +14,7 @@ const Main = () => {
   return <main>
     <Routes>
       <Route path="/" element={<Store />} />
-      <Route path="/:id" element={<Details />} />
+      <Route path="/product/:id" element={<Details />} />
     </Routes>
   </main>;
 };

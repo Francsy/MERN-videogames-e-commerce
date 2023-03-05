@@ -26,8 +26,13 @@ const getProducts = async (req, res) => {
             .populate('manufacturer', 'manufacturer_name -_id')
             .sort(sortConfig)
             .skip(skipIndex)
-            .limit(limit)
-        res.status(200).json(products)
+            .limit(limit + 1) // We take 11 to check if there is more than ten and send that info too
+
+        const hasMore = products.length > limit;
+        if (hasMore){
+            products.pop() 
+        }
+        res.status(200).json({ products, hasMore }) // a products array and a boolean to control the page buttons
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
@@ -56,5 +61,4 @@ const getProductInfo = async (req, res) => {
 module.exports = {
     getProducts,
     getProductInfo
-
 }

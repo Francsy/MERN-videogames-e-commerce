@@ -7,11 +7,11 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 function App() {
-  const [search, setSearch ] = useState('')
+  const [searchInput, setSearchInput ] = useState('')
 
   const searchInfo = {
-    search,
-    setSearch
+    searchInput,
+    setSearchInput
   }
 
   return (
