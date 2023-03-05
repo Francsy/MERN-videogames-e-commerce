@@ -1,8 +1,9 @@
 import React from "react";
-import Nav from "./Nav"
+import SearchBar from "./SearchBar"
+
 
 const Header = () => {
-  return <header><Nav /></header>;
+  return <header><SearchBar/></header>;
 };
 
 export default Header;

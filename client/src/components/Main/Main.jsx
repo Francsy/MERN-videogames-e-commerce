@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from 'react-router-dom';
-
+import Store from './Store'
+import Details from './Details'
 
 const Main = () => {
 
@@ -11,10 +12,10 @@ const Main = () => {
   }, [location.pathname]);
 
   return <main>
-   {/*  <Routes>
-      <Route path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Store />} />
       <Route path="/:id" element={<Details />} />
-    </Routes> */}
+    </Routes>
   </main>;
 };
 
