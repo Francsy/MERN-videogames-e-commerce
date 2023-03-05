@@ -2,59 +2,37 @@ const Manufacturer = require('../models/manufacturers')
 const Product = require('../models/products')
 
 
-
-const getAll = async (req, res) => {
-    const { limit, skipIndex } = req.pagination
+const getProducts = async (req, res) => {
+    const { sortBy, order, search } = req.query;
+    const { limit, skipIndex } = req.pagination;
+    const sortConfig = {};
+    const query = {};
+    if (search) {
+        const manufacturers = await Manufacturer.find( // array of manufacturers objects of _id that match the search
+            { manufacturer_name: { $regex: search, $options: "i" } },
+            { _id: 1 } 
+        );
+        const manufacturerIds = manufacturers.map(manufacturer => manufacturer._id); // array with objects to array with _id that matchs
+        query.$or = [
+            { name: { $regex: search, $options: "i" } },
+            { manufacturer: { $in: manufacturerIds } } //search by name oof prooducts and if of manufacturer
+        ];
+    }
+    if (sortBy && order) {
+        sortConfig[sortBy] = order === 'asc' ? 1 : -1
+    }
     try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').skip(skipIndex).limit(limit);
-        res.status(200).json(products);
+        const products = await Product.find(query, '-_id -__v -manufacturer')
+            .populate('manufacturer', 'manufacturer_name -_id')
+            .sort(sortConfig)
+            .skip(skipIndex)
+            .limit(limit)
+        res.status(200).json(products)
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({ message: err.message })
     }
 }
 
-const getAllSortByName = async (req, res) => {
-    const { order } = req.query // asc or des
-    const { limit, skipIndex } = req.pagination
-    let orderInfo;
-    order === 'asc' ? orderInfo = 1 : orderInfo = -1;
-    try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({name: orderInfo}).skip(skipIndex).limit(limit);;
-        res.status(200).json(products);
-        
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-}
-
-const getAllSortByRelevance = async (req, res) => {
-    const { order } = req.query 
-    const { limit, skipIndex } = req.pagination
-    let orderInfo;
-    order === 'asc' ? orderInfo = 1 : orderInfo = -1;
-    try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({relevance: orderInfo}).skip(skipIndex).limit(limit);;
-        res.status(200).json(products);
-        
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-}
-
-
-const getAllSortByPrice = async (req, res) => {
-    const { order } = req.query 
-    const { limit, skipIndex } = req.pagination
-    let orderInfo;
-    order === 'asc' ? orderInfo = 1 : orderInfo = -1;
-    try {
-        let products = await Product.find({}, '-_id -__v -manufacturer').sort({price: orderInfo}).skip(skipIndex).limit(limit);;
-        res.status(200).json(products);
-        
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-}
 
 const getProductInfo = async (req, res) => {
     const {id} = req.params;
@@ -73,11 +51,10 @@ const getProductInfo = async (req, res) => {
 
 }
 
+
+
 module.exports = {
-    getAll,
-    getAllSortByName,
-    getAllSortByRelevance,
-    getAllSortByPrice,
+    getProducts,
     getProductInfo
 
 }
