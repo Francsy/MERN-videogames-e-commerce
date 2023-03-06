@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Store from './Store'
 import Details from './Details'
+import Cart from './Cart'
 
 const Main = () => {
 
@@ -15,6 +16,7 @@ const Main = () => {
     <Routes>
       <Route path="/" element={<Store />} />
       <Route path="/product/:id" element={<Details />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   </main>;
