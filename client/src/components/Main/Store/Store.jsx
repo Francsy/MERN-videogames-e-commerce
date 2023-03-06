@@ -93,7 +93,7 @@ const Store = () => {
     <><button className={buttons.name.className} onClick={()=>orderByRule('name')} >{buttons.name.text}{buttons.name.arrow}</button>
     <button className={buttons.relevance.className} onClick={()=>orderByRule('relevance')}>{buttons.relevance.text}{buttons.relevance.arrow}</button>
     <button className={buttons.price.className} onClick={()=>orderByRule('price')}>{buttons.price.text}{buttons.price.arrow}</button>
-    <button onClick={removeRules}>Remove rules</button></> :
+    {sortBy.length > 0 ? <button onClick={removeRules}>No filters</button>:<></>}</> :
     <></>}
     <List products={products} />
     <div className="store-pagination">
