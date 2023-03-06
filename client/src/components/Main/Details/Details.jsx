@@ -29,13 +29,13 @@ const Details = () => {
     {Object.keys(product).length !== 0 ? 
     <article>
     <h1>{product.name}</h1>
-    <h2>Relevance: {product.relevance}/10</h2>
+    <h2>Relevance: {product.relevance}/100</h2>
     <h2>Price: {product.price}€</h2>
-    <h2>Manufacturer:</h2>
+    <h2>Distributor:</h2>
     <ul>
-      <li>Company: {product.manufacturer.manufacturer_name}</li>
-      <li>CIF: {product.manufacturer.CIF}</li>
-      <li>Address: {product.manufacturer.address}</li>
+      <li>Company: {product.distributor.distributor}</li>
+      <li>CIF: {product.distributor.CIF}</li>
+      <li>Address: {product.distributor.address}</li>
     </ul>
   </article> : <span>Loading...</span>
   } 

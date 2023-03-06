@@ -63,13 +63,36 @@ const Store = () => {
       setPage(page - 1)
     }
   }
+  const [buttons, setButtons] = useState({
+    name: { text: "Sort by name", hora: "", direction: "", arrow: "" },
+    price: { text: "Sort by price", hora: "", direction: "", arrow: "" },
+    relevance: { text: "Sort by relevance", hora:"", direction: "", arrow: ""}
+  })
+
+  useEffect(() =>{
+    const handleButtonContent = () => {
+      const newButtons = {...buttons }
+      Object.keys(newButtons).forEach(key => {
+        if (key === sortBy) {
+          newButtons[key].className = "selected-filter"
+          newButtons[key].arrow = order === "asc" ? '⬇' : '⬆';
+        } else {
+          newButtons[key].className = ""
+          newButtons[key].arrow = ""
+        }
+      })
+      setButtons(newButtons)
+    }
+    handleButtonContent()
+// eslint-disable-next-line
+  },[sortBy, order])
 
 
   return <>
     {products.length > 1 ?
-    <><button onClick={()=>orderByRule('name')}>Sort by name</button>
-    <button onClick={()=>orderByRule('relevance')}>Sort by relevance</button>
-    <button onClick={()=>orderByRule('price')}>Sort by price</button>
+    <><button className={buttons.name.className} onClick={()=>orderByRule('name')} >{buttons.name.text}{buttons.name.arrow}</button>
+    <button className={buttons.relevance.className} onClick={()=>orderByRule('relevance')}>{buttons.relevance.text}{buttons.relevance.arrow}</button>
+    <button className={buttons.price.className} onClick={()=>orderByRule('price')}>{buttons.price.text}{buttons.price.arrow}</button>
     <button onClick={removeRules}>Remove rules</button></> :
     <></>}
     <List products={products} />

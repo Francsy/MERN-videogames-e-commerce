@@ -20,9 +20,16 @@ const objectSchema = {
         type: Number,
         required: true
     },
-    manufacturer: {
+    image: {
+        type: String
+    },
+    publisher: {
+        type: String,
+        required: true
+    },
+    distributor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Manufacturer',
+        ref: 'Distributor',
         required: true
     }
 }
