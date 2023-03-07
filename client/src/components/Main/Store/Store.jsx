@@ -26,6 +26,7 @@ const Store = () => {
       });
       console.log(res.data)
       const {products, hasMore } = res.data;
+      products.map(product => product.image = product.image || '/assets/nogame-img.webp')
       setProducts(products);
       hasMore ? setMoreAhead(true) : setMoreAhead(false)
       

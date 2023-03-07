@@ -167,6 +167,11 @@ const initialProducts = [{
     "image": "https://m.media-amazon.com/images/I/51DE99R8SWL._AC_.jpg",
     "publisher": "Capcom"
   }, {
+    "name": "Grand Theft Auto VI",
+    "relevance": 94.24,
+     "price": 59.99,
+    "publisher": "Rockstar Games"
+  }, {
     "name": "The Last of Us: Remastered",
     "relevance": 92.47,
     "price": 42.58,
@@ -304,7 +309,12 @@ const initialProducts = [{
      "price": 40.75,
     "image": "https://m.media-amazon.com/images/I/81pF8NzKtzS._AC_SX550_.jpg",
     "publisher": "Bandai Namco"
-  }]
+  },{
+  "name": "The Last of Us Factions",
+  "relevance": 85.34,
+   "price": 34.35,
+  "publisher": "Naughty Dogs"
+}]
  
 const loadData = async () => {
     await Distributor.deleteMany({});
