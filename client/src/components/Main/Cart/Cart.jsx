@@ -15,6 +15,10 @@ const Cart = () => {
   });
 
   return (
+    <section>
+          <h1 className="text-3xl font-bold underline">Shopping cart!</h1>
+
+    
       <table className="table">
           <thead>
               <tr>
@@ -56,6 +60,7 @@ const Cart = () => {
           </tbody>
 
       </table>
+      </section>
   )
 }
 

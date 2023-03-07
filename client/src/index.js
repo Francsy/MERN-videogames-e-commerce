@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.css';
 import 'normalize.css'
-import './styles/styles.scss'
+import './index.css';
+// import './styles/styles.scss'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';

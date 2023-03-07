@@ -1,11 +1,47 @@
 import React from "react";
 import {Link } from "react-router-dom"
 import { useSelector } from 'react-redux';
+import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+
+
+const Nav = () => {
+  const itemsQuantity = useSelector(state => state.numberItems)
+
+return <div className="flex items-center">
+<Link className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/" >Home</Link>
+
+<Link to="/cart" >
+  <button
+    type="button"
+    className="group -mr-1 flex items-center text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+  >
+    <span className="sr-only">Open Cart</span>
+    <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+    <span className="ml-1 font-medium">{itemsQuantity}</span>
+  </button>
+</Link>
+</div>
+};
+
+export default Nav;
+
+
+
+
+
+/* 
+
+import React from "react";
+import {Link } from "react-router-dom"
+import { useSelector } from 'react-redux';
+
+
+Version 1:
 
 const Nav = () => {
 
   const itemsQuantity = useSelector(state => state.numberItems)
-  return <div>
+  return <div >
     <Link to="/" >Home</Link>
     <Link to="/cart" >Cart</Link>
     <span>{itemsQuantity}</span>
@@ -14,3 +50,4 @@ const Nav = () => {
 };
 
 export default Nav;
+ */

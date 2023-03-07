@@ -94,9 +94,9 @@ const Store = () => {
   return <>
     {products.length > 1 ?
     <>
-    <button className={buttons.name.classInfo} onClick={()=>orderByRule('name')} >{buttons.name.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.name.text}{buttons.name.arrow}</button>
-    <button className={buttons.relevance.classInfo} onClick={()=>orderByRule('relevance')}>{buttons.relevance.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.relevance.text}{buttons.relevance.arrow}</button>
-    <button className={buttons.price.classInfo} onClick={()=>orderByRule('price')}>{buttons.price.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.price.text}{buttons.price.arrow}</button>
+    <button className={buttons.name.classInfo} onClick={()=>orderByRule('name')} >{buttons.name.cross === true ? <span onClick={removeRules}> X </span> : <></>}{buttons.name.text}{buttons.name.arrow}</button>
+    <button className={buttons.relevance.classInfo} onClick={()=>orderByRule('relevance')}>{buttons.relevance.cross === true ? <span onClick={removeRules}> X </span> : <></>}{buttons.relevance.text}{buttons.relevance.arrow}</button>
+    <button className={buttons.price.classInfo} onClick={()=>orderByRule('price')}>{buttons.price.cross === true ? <span onClick={removeRules}> X </span> : <></>}{buttons.price.text}{buttons.price.arrow}</button>
     {/* {sortBy.length > 0 ? <button onClick={removeRules}>No filters</button>:<></>} */}
     </> :
     <></>}
