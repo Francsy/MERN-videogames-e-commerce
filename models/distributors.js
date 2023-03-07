@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('../utils/db_Mongo');
 
 const objectSchema = {
-    manufacturer_name: { 
+    distributor_name: { 
         type: String, 
         required: true,
         unique: true
@@ -18,14 +18,14 @@ const objectSchema = {
     }
 };
 
-const manufaturerSchema = mongoose.Schema(objectSchema);
+const distributorSchema = mongoose.Schema(objectSchema);
 
-const Manufacturer = mongoose.model('Manufacturer', manufaturerSchema);
+const Distributor = mongoose.model('Distributor', distributorSchema);
 
-module.exports = Manufacturer;
+module.exports = Distributor;
 
 // const p = new Manufacturer({
-//     manufacturer_name: "COEXDI",
+//     distributor_name: "COEXDI",
 //     CIF: "08949394854K",
 //     address: "Plaza del Pilar Redondo"
 // });

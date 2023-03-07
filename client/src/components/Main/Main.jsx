@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useLocation } from 'react-router-dom';
-
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import Store from './Store'
+import Details from './Details'
+import Cart from './Cart'
 
 const Main = () => {
 
@@ -11,10 +13,12 @@ const Main = () => {
   }, [location.pathname]);
 
   return <main>
-   {/*  <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/:id" element={<Details />} />
-    </Routes> */}
+    <Routes>
+      <Route path="/" element={<Store />} />
+      <Route path="/product/:id" element={<Details />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   </main>;
 };
 
