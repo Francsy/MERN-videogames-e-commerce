@@ -64,9 +64,9 @@ const Store = () => {
     }
   }
   const [buttons, setButtons] = useState({
-    name: { text: "Sort by name", hora: "", direction: "", arrow: "" },
-    price: { text: "Sort by price", hora: "", direction: "", arrow: "" },
-    relevance: { text: "Sort by relevance", hora:"", direction: "", arrow: ""}
+    name: { text: "Sort by name", classInfo: "", cross: false, arrow: "" },
+    price: { text: "Sort by price", classInfo: "", cross: false, arrow: "" },
+    relevance: { text: "Sort by relevance", classInfo:"", cross: false, arrow: ""}
   })
 
   useEffect(() =>{
@@ -74,11 +74,13 @@ const Store = () => {
       const newButtons = {...buttons }
       Object.keys(newButtons).forEach(key => {
         if (key === sortBy) {
-          newButtons[key].className = "selected-filter"
+          newButtons[key].classInfo = "selected-filter"
           newButtons[key].arrow = order === "asc" ? '⬇' : '⬆';
+          newButtons[key].cross = true;
         } else {
-          newButtons[key].className = ""
+          newButtons[key].classInfo = ""
           newButtons[key].arrow = ""
+          newButtons[key].cross = false;
         }
       })
       setButtons(newButtons)
@@ -90,10 +92,12 @@ const Store = () => {
 
   return <>
     {products.length > 1 ?
-    <><button className={buttons.name.className} onClick={()=>orderByRule('name')} >{buttons.name.text}{buttons.name.arrow}</button>
-    <button className={buttons.relevance.className} onClick={()=>orderByRule('relevance')}>{buttons.relevance.text}{buttons.relevance.arrow}</button>
-    <button className={buttons.price.className} onClick={()=>orderByRule('price')}>{buttons.price.text}{buttons.price.arrow}</button>
-    {sortBy.length > 0 ? <button onClick={removeRules}>No filters</button>:<></>}</> :
+    <>
+    <button className={buttons.name.classInfo} onClick={()=>orderByRule('name')} >{buttons.name.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.name.text}{buttons.name.arrow}</button>
+    <button className={buttons.relevance.classInfo} onClick={()=>orderByRule('relevance')}>{buttons.relevance.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.relevance.text}{buttons.relevance.arrow}</button>
+    <button className={buttons.price.classInfo} onClick={()=>orderByRule('price')}>{buttons.price.cross === true ? <a onClick={removeRules}> X </a> : <></>}{buttons.price.text}{buttons.price.arrow}</button>
+    {/* {sortBy.length > 0 ? <button onClick={removeRules}>No filters</button>:<></>} */}
+    </> :
     <></>}
     <List products={products} />
     <div className="store-pagination">
