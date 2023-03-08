@@ -3,10 +3,7 @@ import SearchBar from "./SearchBar"
 import Nav from "./Nav"
 import { Disclosure } from '@headlessui/react'
 
-
-
-export default function Example() {
-
+export default function Header() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -22,11 +19,6 @@ export default function Example() {
     </Disclosure>
   )
 }
-
-
-
-
-
 
 
 /* 
@@ -47,5 +39,3 @@ const Header = () => {
 
 export default Header;
  */
-
-

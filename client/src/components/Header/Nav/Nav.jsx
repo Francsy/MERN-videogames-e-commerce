@@ -8,7 +8,7 @@ const Nav = () => {
   const itemsQuantity = useSelector(state => state.numberItems)
 
 return <div className="flex items-center">
-<Link className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/" >Home</Link>
+<Link className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/" >Store</Link>
 
 <Link to="/cart" >
   <button
