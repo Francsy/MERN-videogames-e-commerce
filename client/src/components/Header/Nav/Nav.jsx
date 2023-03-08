@@ -17,7 +17,7 @@ return <div className="flex items-center">
   >
     <span className="sr-only">Open Cart</span>
     <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-    <span className="ml-1 font-medium">{itemsQuantity}</span>
+    <span className="ml-1 font-medium mx-1">{itemsQuantity}</span>
   </button>
 </Link>
 </div>
