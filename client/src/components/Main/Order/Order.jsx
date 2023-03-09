@@ -1,7 +1,12 @@
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+
 
 const Order = () => {
   const items = useSelector(state => state.cartItems);
+  const navigate = useNavigate()
+  const goBack = () => navigate(-1)
+
 
   let totalCart = 0;
   items.forEach(item => {
@@ -10,6 +15,9 @@ const Order = () => {
 
   return (
     <div className='p-4'>
+      <div class="flex justify-center items-center lg:justify-start lg:pl-10 mt-7 mb-8" >
+          <button class="bg-gray-800 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-300" onClick={goBack}>&lt; Back</button>
+        </div>
       <h1 className="text-3xl font-bold mb-4">Your order:</h1>
       {items.map((item, i) => (
         <div key={i} className="border border-gray-800 p-4 rounded-lg flex justify-between items-center mb-4">

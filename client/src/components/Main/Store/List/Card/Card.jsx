@@ -41,7 +41,7 @@ const Card = (props) => {
             <p className="mt-1 text-sm text-gray-500">Publisher: {props.product.publisher}</p>
             <p className="mt-1 text-sm text-gray-500">Distributor: {props.product.distributor.distributor_name}</p>
           </div>
-          <p className="text-sm font-medium text-gray-900">{props.product.price}</p>
+          <p className="text-sm font-medium text-gray-900">{props.product.price}€</p>
         </div>
         <div>
         </div>

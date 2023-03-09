@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../../../redux';
 import noGame from '../../../assets/nogame.webp'
 
+import PacManLoader from "react-spinners/PacmanLoader";
+
 
 const Details = () => {
 
@@ -36,16 +38,11 @@ const Details = () => {
       const specificProduct = res.data;
       specificProduct.image = specificProduct.image || noGame;
       setProduct(specificProduct)
-      console.log(product)
     }
     printProduct()
   }
     // eslint-disable-next-line
     , [])
-
-
-
-
 
 
 
@@ -85,7 +82,7 @@ const Details = () => {
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
           </div>
 
-          {/* <!-- Options --> */}
+          {/* <!-- Product price --> */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl tracking-tight text-gray-900">{product.price} €</p>
@@ -116,7 +113,7 @@ const Details = () => {
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">Welcome to the {product.name}! A video game masterpiece that is a must for your collection. {product.publisher}' proposal has been awarded a score of {Math.floor(product.relevance)}/100 by the critics. Play it on your console in just 24 hours thanks to our distributor {product.distributor.distributor_name}.</p>
+                <p className="text-base text-gray-900">Welcome to the {product.name}! A video game masterpiece that is a must for your collection. {product.publisher}' proposal has been awarded a score of {Math.floor(product.relevance)}/100 by the critics. Play it on your favourite console in less than 24 hours thanks to our distributor {product.distributor.distributor_name}.</p>
               </div>
             </div>
 
@@ -141,7 +138,13 @@ const Details = () => {
           </div>
         </div>
       </div>
-    </div> : <span>Loading...</span>}
+    </div> : <div className="flex justify-center mt-10">
+      <PacManLoader
+        color="#76C2AF"
+        size={50}
+        speedMultiplier={1}
+      />
+      </div>}
   </>
 };
 
