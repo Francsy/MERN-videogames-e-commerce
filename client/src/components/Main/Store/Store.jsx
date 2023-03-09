@@ -10,6 +10,7 @@ import PacManLoader from "react-spinners/PacmanLoader";
 
 const Store = () => {
 
+  const [isLoading, setIsLoading] = useState(true)
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [order, setOrder] = useState('')
@@ -21,6 +22,7 @@ const Store = () => {
 
   useEffect(() => {
     const printProducts = async () => {
+      setIsLoading(true)
       const res = await axios.get(`/api/products`, {
         params: {
           page: page,
@@ -32,6 +34,7 @@ const Store = () => {
       const { products, hasMore } = res.data;
       products.map(product => product.image = product.image || noGame)
       setProducts(products);
+      setIsLoading(false)
       hasMore ? setMoreAhead(true) : setMoreAhead(false)
 
     }
@@ -101,7 +104,7 @@ const Store = () => {
 
 
   return <> 
-  {products ? 
+  {!isLoading ? 
   <>
          <div className="flex justify-center mt-3">
     <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">

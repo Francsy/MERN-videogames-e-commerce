@@ -317,6 +317,7 @@ const initialProducts = [{
 }]
  
 const loadData = async () => {
+  try {
     await Distributor.deleteMany({});
     const loadedDistributors = await Distributor.insertMany(seedDistributors);
     console.log('Distributors loaded')
@@ -328,6 +329,10 @@ const loadData = async () => {
     await Product.insertMany(seedProducts);
 
     console.log('Products loaded')
+
+  }catch (err) {
+    console.log(err)
+  }
 };
 
 loadData().then(() => {
