@@ -1,17 +1,20 @@
-import React from "react";
+import React, {useState } from "react";
 import {Link } from "react-router-dom"
 import { useSelector } from 'react-redux';
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+import NavCart from './NavCart'
 
 
 const Nav = () => {
   const itemsQuantity = useSelector(state => state.numberItems)
+  const [open, setOpen] = useState(true)
+
 
 return <div className="flex items-center">
 <Link className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" to="/" >Store</Link>
 
-<Link to="/cart" >
-  <button
+
+  <button onClick={() => setOpen(true)}
     type="button"
     className="group -mr-1 flex items-center text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
   >
@@ -19,7 +22,7 @@ return <div className="flex items-center">
     <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
     <span className="ml-1 font-medium mx-1">{itemsQuantity}</span>
   </button>
-</Link>
+<NavCart open={open} setOpen={setOpen} />
 </div>
 };
 
