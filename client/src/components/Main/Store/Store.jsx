@@ -3,6 +3,7 @@ import { searchContext } from "../../../context/searchContext";
 import axios from 'axios'
 import List from './List'
 import { ChevronLeftIcon, ChevronRightIcon, ArrowDownIcon, ArrowUpIcon, XMarkIcon} from '@heroicons/react/20/solid'
+import noGame from '../../../assets/nogame.webp'
 
 
 const Store = () => {
@@ -26,9 +27,8 @@ const Store = () => {
           search: search ? search : undefined
         }
       });
-      console.log(res.data)
       const { products, hasMore } = res.data;
-      products.map(product => product.image = product.image || '/assets/nogame-img.webp')
+      products.map(product => product.image = product.image || noGame)
       setProducts(products);
       hasMore ? setMoreAhead(true) : setMoreAhead(false)
 

@@ -7,7 +7,7 @@ import NavCart from './NavCart'
 
 const Nav = () => {
   const itemsQuantity = useSelector(state => state.numberItems)
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
 
 
 return <div className="flex items-center">

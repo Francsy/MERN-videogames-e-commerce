@@ -127,7 +127,7 @@ export default function NavCart(props) {
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                        <Link to ="/"
+                        <Link to ="/order"
                          onClick={()=>props.setOpen(false)}
                           
                           className="flex items-center justify-center rounded-md border border-transparent bg-gray-800 hover:bg-gray-600  px-6 py-3 text-base font-medium text-white shadow-sm "

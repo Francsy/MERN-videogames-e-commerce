@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../../../redux';
+import noGame from '../../../assets/nogame.webp'
 
 
 const Details = () => {
@@ -32,8 +33,9 @@ const Details = () => {
   useEffect(() => {
     const printProduct = async () => {
       const res = await axios.get(`http://localhost:5000/api/products/${id}`)
-      console.log(res.data)
-      setProduct(res.data)
+      const specificProduct = res.data;
+      specificProduct.image = specificProduct.image || noGame;
+      setProduct(specificProduct)
       console.log(product)
     }
     printProduct()

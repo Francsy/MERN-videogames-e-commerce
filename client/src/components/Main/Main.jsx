@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Store from './Store'
 import Details from './Details'
-import Cart from './Cart'
+import Order from './Order'
 
 const Main = () => {
 
@@ -12,11 +12,11 @@ const Main = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  return <main>
+  return <main className="min-h-screen">
     <Routes>
       <Route path="/" element={<Store />} />
       <Route path="/product/:id" element={<Details />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/order" element={<Order />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   </main>;
