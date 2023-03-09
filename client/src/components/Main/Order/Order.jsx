@@ -18,6 +18,8 @@ const Order = () => {
       <div class="flex justify-center items-center lg:justify-start lg:pl-10 mt-7 mb-8" >
           <button class="bg-gray-800 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-300" onClick={goBack}>&lt; Back</button>
         </div>
+        <div className='m-2 sm:mx-36'>
+
       <h1 className="text-3xl font-bold mb-4">Your order:</h1>
       {items.map((item, i) => (
         <div key={i} className="border border-gray-800 p-4 rounded-lg flex justify-between items-center mb-4">
@@ -33,6 +35,8 @@ const Order = () => {
       <div className="border border-gray-800 p-4 rounded-lg">
         <span className="text-gray-800 font-bold text-lg">Total: {totalCart.toFixed(2)} €</span>
       </div>
+
+        </div>
     </div>
   );
 }

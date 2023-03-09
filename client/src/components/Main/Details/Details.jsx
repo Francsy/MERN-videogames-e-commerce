@@ -34,7 +34,7 @@ const Details = () => {
 
   useEffect(() => {
     const printProduct = async () => {
-      const res = await axios.get(`http://localhost:5000/api/products/${id}`)
+      const res = await axios.get(`/api/products/${id}`)
       const specificProduct = res.data;
       specificProduct.image = specificProduct.image || noGame;
       setProduct(specificProduct)
