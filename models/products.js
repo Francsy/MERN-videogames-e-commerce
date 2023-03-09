@@ -1,0 +1,50 @@
+const mongoose = require('mongoose');
+require('../utils/db_mongo')
+
+const objectSchema = {
+    id: { 
+        type: Number, 
+        required: true,
+        unique: true
+    },
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    relevance: {
+        type: Number,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    image: {
+        type: String
+    },
+    publisher: {
+        type: String,
+        required: true
+    },
+    distributor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Distributor',
+        required: true
+    }
+}
+
+const productSchema = mongoose.Schema(objectSchema);
+
+const Product = mongoose.model('Product', productSchema);
+
+module.exports = Product;
+
+// const p = new Product({
+//     name: "Heura",
+//     relevance: 8,
+//     price: 3.80,
+//     manufacturer: "63d0023844abf01339ee1697"
+// });
+
+// p.save().then((data)=>console.log(data));
