@@ -116,7 +116,7 @@ const Details = () => {
               <h3 className="sr-only">Description</h3>
 
               <div className="space-y-6">
-                <p className="text-base text-gray-900">Welcome to the universe of {product.name}. A video game masterpiece. {product.publisher}' proposal has been awarded a score of {Math.floor(product.relevance)}/100 by the critics. Play it on your console in just 24 hours thanks to our distributor {product.distributor.distributor_name}.</p>
+                <p className="text-base text-gray-900">Welcome to the {product.name}! A video game masterpiece that is a must for your collection. {product.publisher}' proposal has been awarded a score of {Math.floor(product.relevance)}/100 by the critics. Play it on your console in just 24 hours thanks to our distributor {product.distributor.distributor_name}.</p>
               </div>
             </div>
 

@@ -37,7 +37,6 @@ const Card = (props) => {
                 {props.product.name}
               </Link>
             </h3>
-            <p className="mt-1 text-sm text-gray-500">Id: {props.product.id}</p>
             <p className="mt-1 text-sm text-gray-500">Relevance: {props.product.relevance}</p>
             <p className="mt-1 text-sm text-gray-500">Publisher: {props.product.publisher}</p>
             <p className="mt-1 text-sm text-gray-500">Distributor: {props.product.distributor.distributor_name}</p>
