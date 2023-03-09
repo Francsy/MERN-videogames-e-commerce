@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
 const dbUrl = process.env.DB_URL_ATLAS || "mongodb://localhost:27017/e-commerce";
