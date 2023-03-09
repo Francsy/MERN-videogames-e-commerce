@@ -146,7 +146,7 @@ export default function NavCart(props) {
                           or&nbsp;
                           <button
                             type="button"
-                            className="font-medium text-black-500 hover:text-indigo-500"
+                            className="font-medium text-black-500 hover:text-green-500"
                             onClick={() => props.setOpen(false)}
                           >
                             Continue Shopping
