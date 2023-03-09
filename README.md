@@ -24,13 +24,13 @@ This is an e-commerce web application built on the MERN stack, with a RESTful AP
 
 <br>
  
-## Want to run it locally? Installation:
+## Installation:
 
 To install this project, you´ll just need to follow three steps:
 
  
-- Clone the repository to your local machine
-- Add your MONGO ATLAS URL to your .env file (you had an .env.example included) or connect to your local connection
+- Clone the repository to your local machine.
+- Add your MONGO ATLAS URL to your .env file (you had an .env.example included) or connect to your localhost Mongo connection.
 - Run these commands:
 ``````
 npm install
@@ -39,6 +39,9 @@ npm run feed_db
 npm run dev
 ``````
 
+<br>
+
+<img src="client/public/assets/store.png">
 <br>
 
 ## Features:
@@ -63,10 +66,15 @@ This React application has the following main features:
 
 - `Data manage`: For those case where there is no complete info of the data.
 
+- `Mobile first design`
+
 With these features, this application provides a user-friendly interface for browsing and purchasing video games, with robust back-end functionality to support seamless data management.
 
 <br>
 
+<img src="client/public/assets/cart.png">
+
+<br>
 
 ## Usage:
 
@@ -79,6 +87,12 @@ With these features, this application provides a user-friendly interface for bro
 - `Shopping Cart`: The shopping cart is displayed as an overlay on the right-hand side of the page, allowing users to easily access and modify their cart contents. Users can adjust the quantity of items in their cart, and also remove items completely. As items are added or removed, prices are dynamically updated, providing users with an up-to-date breakdown of their costs. This shopping cart feature offers users a convenient and user-friendly way to manage their purchases and checkout.
 
 - `Order`: After selecting the "checkout" button, our e-commerce web application directs users to a final page that displays the details of their order. This page provides a summary of the user's selected items, as well as the total cost.
+
+<br>
+
+
+<img src="client/public/assets/details.png">
+<br>
 
 Contributions are always welcome! If you have any ideas, suggestions, or find any issues, please don't hesitate to open an issue or submit a pull request. Thank you for using and supporting this project!
 
