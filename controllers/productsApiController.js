@@ -47,7 +47,7 @@ const getProductInfo = async (req, res) => {
             res.status(200).json(product); // 
         }
         else {
-            res.status(404).json({ message: "product wit id " + req.params.id + " not found"}); 
+            res.status(404).json({ message: "product with id " + req.params.id + " not found"}); 
         }
     }
     catch (err) {
