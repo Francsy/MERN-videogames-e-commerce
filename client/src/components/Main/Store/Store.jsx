@@ -118,15 +118,12 @@ const Store = () => {
             </button> : <></>}
           </nav>
         </div>
-
-
         <div className="flex flex-col sm:flex-row mt-3 mx-4 justify-center">
           <button disabled={products.length < 2 ? true : false} className={`inline-flex items-center justify-center ${buttons.name.classInfo}  text-white py-2 px-4 mt-3 mx-4 rounded ${products.length < 2 ? "disabled: opacity-50 cursor-not-allowed" : ""}`} onClick={() => orderByRule('name')} >{buttons.name.cross === true ? <XMarkIcon className="w-6 h-6 mr-2" onClick={removeRules} /> : <></>}{buttons.name.text}{buttons.name.arrow}</button>
           <button disabled={products.length < 2 ? true : false} className={`inline-flex items-center justify-center ${buttons.relevance.classInfo} text-white py-2 px-4 mt-3 mx-4 rounded ${products.length < 2 ? "disabled: opacity-50 cursor-not-allowed" : ""}`} onClick={() => orderByRule('relevance')}>{buttons.relevance.cross === true ? <XMarkIcon className="w-6 h-6 mr-2" onClick={removeRules} /> : <></>}<span>{buttons.relevance.text}</span>{buttons.relevance.arrow}</button>
           <button disabled={products.length < 2 ? true : false} className={`inline-flex items-center justify-center ${buttons.price.classInfo} text-white py-2 px-4 mt-3 mx-4 rounded ${products.length < 2 ? "disabled: opacity-50 cursor-not-allowed" : ""}`} onClick={() => orderByRule('price')}>{buttons.price.cross === true ? <XMarkIcon className="w-6 h-6 mr-2" onClick={removeRules} /> : <></>}{buttons.price.text}{buttons.price.arrow}</button>
         </div>
     {!isLoading ? <>
-
         <List products={products} />
         <div className="flex justify-center">
           <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
@@ -144,7 +141,7 @@ const Store = () => {
       </> : <div className="flex justify-center mt-40">
         <PacManLoader
           color="#76C2AF"
-          size={50}
+          size={60}
           speedMultiplier={1}
         />
       </div>
