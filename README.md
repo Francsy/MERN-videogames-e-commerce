@@ -34,8 +34,14 @@ To install this project, you´ll just need to follow three steps:
 - Run these commands:
 ``````
 npm install
+``````
+``````
 npm run clientinstall
+``````
+``````
 npm run feed_db
+``````
+``````
 npm run dev
 ``````
 
