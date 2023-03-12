@@ -17,8 +17,6 @@ app.use(morgan('dev'))
 
 app.use('/api/products', productsApiRoutes); // Rutas web API products
 
-app.get('/', (req, res) => res.send('Welcome to our api'))
-
 if (process.env.NODE_ENV === 'production') {
     //*Set static folder
     app.use(express.static('client/build'));

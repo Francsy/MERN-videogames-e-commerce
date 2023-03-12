@@ -5,7 +5,7 @@ const paginator = require('../middlewares/paginator')
 
 productsApiRouter.get('/', paginator, productsApiController.getProducts)
 
-// http://localhost:5000/api/products?sortBy=name&&order=des&&page=1&&search=inc
+// EXAMPLE: http://localhost:5000/api/products?sortBy=name&&order=des&&page=1&&search=inc
 
 productsApiRouter.get('/:id', productsApiController.getProductInfo)
 
