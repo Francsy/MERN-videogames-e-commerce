@@ -2,7 +2,6 @@ const express = require('express')
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config()
-require('./utils/db_mongo')
 
 const morgan = require('morgan')
 const errorHandler = require('./middlewares/errorHandler')

@@ -1,3 +1,5 @@
+require('../utils/db_mongo')
+
 const mongoose = require('mongoose');
 
 const objectSchema = {
