@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-require('../utils/db_Mongo');
 
 const objectSchema = {
     distributor_name: { 
