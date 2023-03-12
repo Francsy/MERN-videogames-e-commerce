@@ -1,5 +1,4 @@
-require('../utils/db_mongo')
-const mongoose = require('mongoose');
+const mongoose = require('../utils/db_mongo')
 
 const objectSchema = {
     id: { 
