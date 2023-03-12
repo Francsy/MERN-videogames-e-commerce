@@ -7,7 +7,7 @@ require('dotenv').config()
 const errorHandler = require('./middlewares/errorHandler')
 
 
-const productsApiRoutes = require('./routes/productsApiRoutes')
+const productsApiRoutes = require(path.join(__dirname, 'routes', 'productsApiRoutes'))
 
 const app = express()
 const PORT = process.env.PORT || 5000;
