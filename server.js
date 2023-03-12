@@ -4,6 +4,8 @@ const path = require('path');
 require('dotenv').config()
 require('./utils/db_mongo')
 
+const morgan = require('morgan')
+const errorHandler = require('./middlewares/errorHandler')
 
 
 const productsApiRoutes = require(path.join(__dirname, 'routes', 'productsApiRoutes'))
@@ -13,6 +15,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors())
+app.use(morgan('dev'))
+
 
 app.use('/api/products', productsApiRoutes); // Rutas web API products
 
@@ -26,6 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
+app.use(errorHandler);
 
 app.listen(PORT, () => {
     console.log('Working on port ' + PORT)
