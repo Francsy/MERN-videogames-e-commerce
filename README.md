@@ -1,6 +1,5 @@
-# FULL-STACK E-COMMERCE - PIXEL PALACE
+# MERN VIDEOGAMES E-COMMERCE - PIXEL PALACE
 Frontend, backend and data base design online store project.
-
 
 This is an e-commerce web application built on the MERN stack, with a RESTful API connected to a MongoDB. With React and Redux on the front-end for user interactivity and state management.
 
@@ -23,8 +22,18 @@ This is an e-commerce web application built on the MERN stack, with a RESTful AP
 
 
 <br>
+
+## Want to go directly to the app?
+
+
+You can try out a demo of this project. Check it at [here!](https://pixelpalace.onrender.com) 
+
+* Note: it will take some time to start up since the server has to run both the back and the front!
+
+<br>
+
  
-## Installation:
+## Want to run it locally? Installation:
 
 To install this project, you´ll just need to follow three steps:
 
@@ -34,8 +43,14 @@ To install this project, you´ll just need to follow three steps:
 - Run these commands:
 ``````
 npm install
+``````
+``````
 npm run clientinstall
+``````
+``````
 npm run feed_db
+``````
+``````
 npm run dev
 ``````
 
